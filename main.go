@@ -18,7 +18,7 @@ type bot struct {
 }
 
 const (
-	botLogsFolder = "/LelloBot/"
+	botLogsFolder = "/LelloBotData/logs/"
 )
 
 var TOKEN = os.Getenv("LelloBot")
