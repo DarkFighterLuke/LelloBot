@@ -1,2 +1,2 @@
 # LelloBot
-A telegram bot talking like the original Lello from Bari.
+A Telegram bot talking like the original Lello from Bari.
