@@ -238,7 +238,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 15:
 		filename := audioFolder + "A_me_mi_serve_casa.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 14)
 		}
@@ -247,7 +247,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		if b.roundNegazione == 0 {
 			filename := audioFolder + "Non_sto_umbriacato.mp3"
 			if checkFileExistence(filename) {
-				b.SendAudio(filename, "", message.Chat.ID)
+				b.SendVoice(filename, "", message.Chat.ID)
 				b.roundNegazione = 1
 			} else {
 				b.sendLelloTypicalExpression(message, 12)
@@ -257,7 +257,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 17:
 		filename := audioFolder + "Questo_me_ne_sbatto_un_cazzo.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 3)
 		}
@@ -265,7 +265,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 18:
 		filename := audioFolder + "Seh_o_mo.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 13)
 		}
@@ -273,7 +273,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 19:
 		filename := audioFolder + "Tsk.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 8)
 		}
@@ -281,7 +281,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 20:
 		filename := audioFolder + "Ma_vedi_che_ahhhhh.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 7)
 		}
@@ -289,7 +289,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	case 21:
 		filename := audioFolder + "Ommeladai_Ommelaprendo.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "", message.Chat.ID)
+			b.SendVoice(filename, "", message.Chat.ID)
 		} else {
 			b.sendLelloTypicalExpression(message, 5)
 		}
@@ -357,7 +357,7 @@ func (b *bot) sendLelloSong(message *echotron.Message) {
 	case 0:
 		filename := audioFolder + "Pinocchio_Lello.mp3"
 		if checkFileExistence(filename) {
-			b.SendAudio(filename, "By Dix (@michele.di.croce)", message.Chat.ID)
+			b.SendVoice(filename, "By Dix (@michele.di.croce)", message.Chat.ID)
 		}
 	}
 }
