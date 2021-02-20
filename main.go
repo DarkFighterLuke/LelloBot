@@ -330,12 +330,16 @@ func (b *bot) privateTalkWithLello(message *echotron.Message) {
 }
 
 func (b *bot) sendLelloSong(message *echotron.Message) {
-	n := rand.Intn(1)
+	n := rand.Intn(2)
 
 	switch n {
 	case 0:
 		fileId := "AwACAgQAAxkBAAMPYDGWbkKgs6VXuzrYXhR6n5jO2j8AAngKAAL9zJBRSwOokr3_fVMeBA"
 		b.SendVoiceByID(fileId, "By Dix (@michele.di.croce)", message.Chat.ID)
+		break
+	case 1:
+		fileId := "CQACAgQAAxkBAAMhYDGbyMQryAc9CfIF3yimp2jQAUEAAuEHAAJ-45BRf1BVsg3JDsseBA"
+		b.SendVoiceByID(fileId, "By Vincenzo Santoliquido", message.Chat.ID)
 		break
 	}
 }
@@ -389,14 +393,5 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	if err != nil {
 		log.Println(err)
 		return
-	}
-}
-
-func checkFileExistence(path string) bool {
-	_, err := os.Stat(path)
-	if os.IsNotExist(err) {
-		return false
-	} else {
-		return true
 	}
 }
