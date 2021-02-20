@@ -94,6 +94,8 @@ func (b *bot) Update(update *echotron.Update) {
 			b.sendStart(update.Message)
 		} else if messageTextLower == "/credits" {
 			b.sendCredits(update)
+		} else if strings.Contains(messageTextLower, "cant") && strings.Contains(messageTextLower, "canzone") {
+			b.sendLelloSong(update.Message)
 		} else if strings.Contains(messageTextLower, "stai pieno") {
 			b.roundNegazione = 1
 			b.sendLelloNegazioneSbronza(update.Message)
@@ -345,6 +347,18 @@ func (b *bot) privateTalkWithLello(message *echotron.Message) {
 	n := rand.Float32()
 	if n < 0.75 {
 		b.sendLelloTypicalExpression(message, -1)
+	}
+}
+
+func (b *bot) sendLelloSong(message *echotron.Message) {
+	n := rand.Intn(1)
+
+	switch n {
+	case 0:
+		filename := audioFolder + "Pinocchio_Lello.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "By Dix (@michele.di.croce)", message.Chat.ID)
+		}
 	}
 }
 
