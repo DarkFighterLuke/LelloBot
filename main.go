@@ -276,17 +276,27 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	var filename string
 
 	if update.CallbackQuery != nil {
-		if update.CallbackQuery.Message.Chat.Username == "" {
-			filename = folder + update.CallbackQuery.Message.Chat.FirstName + "_" + update.CallbackQuery.Message.Chat.LastName + ".txt"
+		if update.Message.Chat.Type == "private" {
+			if update.CallbackQuery.Message.Chat.Username == "" {
+				filename = folder + update.CallbackQuery.Message.Chat.FirstName + "_" + update.CallbackQuery.Message.Chat.LastName + ".txt"
+			} else {
+				filename = folder + update.CallbackQuery.Message.Chat.Username + ".txt"
+			}
 		} else {
-			filename = folder + update.CallbackQuery.Message.Chat.Username + ".txt"
+			filename = folder + update.Message.Chat.Title + ".txt"
 		}
+
 	} else if update.Message != nil {
-		if update.Message.Chat.Username == "" {
-			filename = folder + update.Message.Chat.FirstName + "_" + update.Message.Chat.LastName + ".txt"
+		if update.Message.Chat.Type == "private" {
+			if update.Message.Chat.Username == "" {
+				filename = folder + update.Message.Chat.FirstName + "_" + update.Message.Chat.LastName + ".txt"
+			} else {
+				filename = folder + update.Message.Chat.Username + ".txt"
+			}
 		} else {
-			filename = folder + update.Message.Chat.Username + ".txt"
+			filename = folder + update.Message.Chat.Title + ".txt"
 		}
+
 	}
 
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0666)
