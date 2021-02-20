@@ -102,7 +102,7 @@ func (b *bot) Update(update *echotron.Update) {
 			strings.Contains(messageTextLower, "lé") {
 			b.sendLelloTypicalExpression(update.Message, 22)
 		} else if strings.Contains(messageTextLower, "angela") {
-			b.sendLelloTypicalExpression(update.Message, -1)
+			b.sendLelloTypicalExpression(update.Message, 24)
 		} else if strings.Contains(messageTextLower, "ubriac") || strings.Contains(messageTextLower, "mbriac") {
 			b.sendLelloTypicalExpression(update.Message, 12)
 		} else if strings.Contains(messageTextLower, "sì") || strings.Contains(messageTextLower, "si") {
@@ -166,7 +166,7 @@ Se non ti rispondo è che ho preso sonno.
 
 func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	if n < 0 {
-		n = rand.Intn(21)
+		n = rand.Intn(25)
 	}
 
 	switch n {
@@ -293,7 +293,15 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		}
 		break
 	case 22:
-		msg := "GIRONZOLAANDOOO."
+		msg := "GIRONZOLAANDOOO"
+		b.SendMessage(msg, message.Chat.ID)
+		break
+	case 23:
+		stickerId := "CAACAgQAAxkBAAMrYDEccZiw8v9nGXddfaFyBETyjJUAAgoAAw9Q-xALVTzbP3nVux4E"
+		b.SendStickerByID(stickerId, message.Chat.ID)
+		break
+	case 24:
+		msg := "La voglio sbaciucchiare tutta con quelle sue guanciotte che ha"
 		b.SendMessage(msg, message.Chat.ID)
 		break
 	}
