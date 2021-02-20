@@ -95,6 +95,8 @@ func (b *bot) Update(update *echotron.Update) {
 			}
 		} else if strings.Contains(messageTextLower, "lello") {
 			b.sendLelloTypicalExpression(update.Message, -1)
+		} else if update.Message.Chat.Type == "private" {
+			b.privateTalkWithLello(update.Message)
 		}
 	} else if update.Message == nil && update.CallbackQuery != nil {
 		if update.CallbackQuery.Data == "credits" {
@@ -271,5 +273,12 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	if err != nil {
 		log.Println(err)
 		return
+	}
+}
+
+func (b *bot) privateTalkWithLello(message *echotron.Message) {
+	n := rand.Float32()
+	if n < 0.6 {
+		b.sendLelloTypicalExpression(message, -1)
 	}
 }
