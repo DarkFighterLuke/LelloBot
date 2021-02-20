@@ -18,11 +18,13 @@ type bot struct {
 }
 
 const (
-	botLogsFolder = "/LelloBotData/logs/"
+	botLogsFolder  = "/LelloBotData/logs/"
+	botAudioFolder = "/LelloBotData/audio/"
 )
 
 var TOKEN = os.Getenv("LelloBot")
-var workingFolder string
+var logsFolder string
+var audioFolder string
 
 func newBot(chatId int64) echotron.Bot {
 	return &bot{
@@ -67,16 +69,25 @@ func (b *bot) makeButtons(buttonsText []string, callbacksData []string, layout i
 	return inlineKMarkup, nil
 }
 
-func main() {
+func initFolders() {
 	currentPath, _ := os.Getwd()
-	workingFolder = currentPath + botLogsFolder
+
+	logsFolder = currentPath + botLogsFolder
+	_ = os.MkdirAll(logsFolder, 0755)
+
+	audioFolder = currentPath + botAudioFolder
+	_ = os.MkdirAll(audioFolder, 0755)
+}
+
+func main() {
+	initFolders()
 
 	dsp := echotron.NewDispatcher(TOKEN, newBot)
 	dsp.ListenWebhook("https://hiddenfile.tk:443/bot/LelloBot", 40989)
 }
 
 func (b *bot) Update(update *echotron.Update) {
-	b.logUser(update, workingFolder)
+	b.logUser(update, logsFolder)
 	if update.Message != nil {
 		messageTextLower := strings.ToLower(update.Message.Text)
 		if messageTextLower == "/start" {
@@ -262,7 +273,6 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 		return
 	}
 
-	os.MkdirAll(folder, 0755)
 	var filename string
 
 	if update.CallbackQuery != nil {
