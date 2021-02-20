@@ -112,7 +112,8 @@ func (b *bot) Update(update *echotron.Update) {
 			if b.roundNegazione != 0 {
 				b.sendLelloTypicalExpression(update.Message, 7)
 			}
-		} else if strings.Contains(messageTextLower, "lello") {
+		} else if strings.Contains(messageTextLower, "lello") || strings.Contains(messageTextLower, "lè") ||
+			strings.Contains(messageTextLower, "lé") {
 			b.sendLelloTypicalExpression(update.Message, -1)
 		} else if update.Message.Chat.Type == "private" {
 			b.privateTalkWithLello(update.Message)
@@ -291,7 +292,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		}
 		break
 	case 22:
-		msg := "GIRONZOLANDOOO."
+		msg := "GIRONZOLAANDOOO."
 		b.SendMessage(msg, message.Chat.ID)
 		break
 	}
