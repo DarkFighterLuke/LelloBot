@@ -98,7 +98,8 @@ func (b *bot) Update(update *echotron.Update) {
 			b.roundNegazione = 1
 			b.sendLelloNegazioneSbronza(update.Message)
 		} else if strings.Contains(messageTextLower, "dove") && strings.Contains(messageTextLower, "vai") &&
-			strings.Contains(messageTextLower, "le") {
+			strings.Contains(messageTextLower, "le") || strings.Contains(messageTextLower, "lè") ||
+			strings.Contains(messageTextLower, "lé") {
 			b.sendLelloTypicalExpression(update.Message, 22)
 		} else if strings.Contains(messageTextLower, "angela") {
 			b.sendLelloTypicalExpression(update.Message, -1)
