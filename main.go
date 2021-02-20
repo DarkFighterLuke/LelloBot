@@ -232,12 +232,19 @@ func (b *bot) sendLelloNegazioneSbronza(message *echotron.Message) {
 		msg := "No! Non sto!"
 		b.SendMessageReply(msg, message.Chat.ID, message.ID)
 	} else if b.roundNegazione == 4 {
-		if n := rand.Intn(2); n == 0 {
+		if n := rand.Intn(13); n <= 3 {
+			b.sendLelloTypicalExpression(message, 3)
+		} else if n <= 4 {
+			b.sendLelloTypicalExpression(message, 4)
+		} else if n <= 7 {
 			b.sendLelloTypicalExpression(message, 7)
-		} else if n == 1 {
-			b.sendLelloTypicalExpression(message, -1)
+		} else if n <= 8 {
+			b.sendLelloTypicalExpression(message, 8)
+		} else if n <= 9 {
+			b.sendLelloTypicalExpression(message, 9)
+		} else if n <= 13 {
+			b.sendLelloTypicalExpression(message, 13)
 		}
-
 	}
 }
 
