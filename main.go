@@ -97,6 +97,8 @@ func (b *bot) Update(update *echotron.Update) {
 		} else if strings.Contains(messageTextLower, "stai pieno") {
 			b.roundNegazione = 1
 			b.sendLelloNegazioneSbronza(update.Message)
+		} else if strings.Contains(messageTextLower, "dove vai") {
+			b.sendLelloTypicalExpression(update.Message, 22)
 		} else if strings.Contains(messageTextLower, "angela") {
 			b.sendLelloTypicalExpression(update.Message, -1)
 		} else if strings.Contains(messageTextLower, "ubriac") || strings.Contains(messageTextLower, "mbriac") {
@@ -286,6 +288,10 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		} else {
 			b.sendLelloTypicalExpression(message, 5)
 		}
+		break
+	case 22:
+		msg := "Gironzolando"
+		b.SendMessage(msg, message.Chat.ID)
 		break
 	}
 
