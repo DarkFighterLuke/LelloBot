@@ -83,6 +83,9 @@ func (b *bot) Update(update *echotron.Update) {
 			b.sendStart(update.Message)
 		} else if messageTextLower == "/credits" {
 			b.sendCredits(update)
+		} else if strings.Contains(messageTextLower, "stai pieno") {
+			b.roundNegazione = 1
+			b.sendLelloNegazioneSbronza(update.Message)
 		} else if strings.Contains(messageTextLower, "ubriac") || strings.Contains(messageTextLower, "umbriac") {
 			b.sendLelloTypicalExpression(update.Message, 12)
 		} else if strings.Contains(messageTextLower, "sì") || strings.Contains(messageTextLower, "si") {
@@ -229,7 +232,19 @@ func (b *bot) sendLelloNegazioneSbronza(message *echotron.Message) {
 		msg := "No! Non sto!"
 		b.SendMessageReply(msg, message.Chat.ID, message.ID)
 	} else if b.roundNegazione == 4 {
-		b.sendLelloTypicalExpression(message, 7)
+		if n := rand.Intn(2); n == 0 {
+			b.sendLelloTypicalExpression(message, 7)
+		} else if n == 1 {
+			b.sendLelloTypicalExpression(message, -1)
+		}
+
+	}
+}
+
+func (b *bot) privateTalkWithLello(message *echotron.Message) {
+	n := rand.Float32()
+	if n < 0.6 {
+		b.sendLelloTypicalExpression(message, -1)
 	}
 }
 
@@ -273,12 +288,5 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	if err != nil {
 		log.Println(err)
 		return
-	}
-}
-
-func (b *bot) privateTalkWithLello(message *echotron.Message) {
-	n := rand.Float32()
-	if n < 0.6 {
-		b.sendLelloTypicalExpression(message, -1)
 	}
 }
