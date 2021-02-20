@@ -293,7 +293,7 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		}
 		break
 	case 22:
-		msg := "GIRONZOLAANDOOO"
+		msg := "GIRONZOLAANDOOO!"
 		b.SendMessage(msg, message.Chat.ID)
 		break
 	case 23:
