@@ -132,7 +132,7 @@ func (b *bot) sendStart(message *echotron.Message) {
 Piacere di conoscerti, %s!
 Io sono Lello.
 Beh mo' parliamo un poco...
-Ricordati di <b>chiamarmi per nome</b> altrimenti non ti rispondo.
+Se non ti rispondo è che ho preso sonno.
 `
 	msg = fmt.Sprintf(msg, message.User.FirstName)
 
