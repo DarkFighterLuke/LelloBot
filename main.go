@@ -358,7 +358,7 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	var filename string
 
 	if update.CallbackQuery != nil {
-		if update.Message.Chat.Type == "private" {
+		if update.CallbackQuery.Message.Chat.Type == "private" {
 			if update.CallbackQuery.Message.Chat.Username == "" {
 				filename = folder + update.CallbackQuery.Message.Chat.FirstName + "_" + update.CallbackQuery.Message.Chat.LastName + ".txt"
 			} else {
