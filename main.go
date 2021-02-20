@@ -250,7 +250,7 @@ func (b *bot) sendLelloNegazioneSbronza(message *echotron.Message) {
 
 func (b *bot) privateTalkWithLello(message *echotron.Message) {
 	n := rand.Float32()
-	if n < 0.6 {
+	if n < 0.75 {
 		b.sendLelloTypicalExpression(message, -1)
 	}
 }
