@@ -236,63 +236,42 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		b.SendMessage(msg, message.Chat.ID)
 		break
 	case 15:
-		filename := audioFolder + "A_me_mi_serve_casa.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 14)
-		}
+		// Sends "A_me_mi_serve_casa.mp3"
+		fileId := "CQACAgQAAxkBAAMRYDGXRaJXlVFCD0e0qWJ0qWi18rgAAtoHAAJ-45BRxSJy-rqi9zEeBA"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 16:
+		// Sends "Non_sto_umbriacato.mp3"
 		if b.roundNegazione == 0 {
-			filename := audioFolder + "Non_sto_umbriacato.mp3"
-			if checkFileExistence(filename) {
-				b.SendVoice(filename, "", message.Chat.ID)
-				b.roundNegazione = 1
-			} else {
-				b.sendLelloTypicalExpression(message, 12)
-			}
+			fileId := "CQACAgQAAxkBAAMVYDGX8LNnlnQoXL4-ny6oUkOIsJkAAtwHAAJ-45BR2iXnAAG4Zzg_HgQ"
+			b.SendVoiceByID(fileId, "", message.Chat.ID)
+			b.roundNegazione = 1
 		}
 		break
 	case 17:
-		filename := audioFolder + "Questo_me_ne_sbatto_un_cazzo.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 3)
-		}
+		// Sends "Questo_me_ne_sbatto_un_cazzo.mp3"
+		fileId := "CQACAgQAAxkBAAMXYDGYNQvfK-RaPZussPqUqC9MNtYAAt0HAAJ-45BRWOC35wg_yx8eBA"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 18:
-		filename := audioFolder + "Seh_o_mo.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 13)
-		}
+		// Sends "Seh_o_mo.mp3"
+		fileId := "CQACAgQAAxkBAAMZYDGYkiDK0TR5A55Evg7UWCChmvIAAt4HAAJ-45BRHBEnU0ScM70eBA"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 19:
-		filename := audioFolder + "Tsk.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 8)
-		}
+		// Sends "Tsk.mp3"
+		fileId := "CQACAgQAAxkBAAMbYDGY1QABK3cRLcQk9JbT2_Et2jnJAALfBwACfuOQUUcM7aLgJwg5HgQ"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 20:
-		filename := audioFolder + "Ma_vedi_che_ahhhhh.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 7)
-		}
+		// Sends "Ma_vedi_che_ahhhhh.mp3"
+		fileId := "CQACAgQAAxkBAAMTYDGXSDFfqDGTqXNIu9kwGX-MjiMAAtsHAAJ-45BRMChRRyvJP68eBA"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 21:
-		filename := audioFolder + "Ommeladai_Ommelaprendo.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "", message.Chat.ID)
-		} else {
-			b.sendLelloTypicalExpression(message, 5)
-		}
+		// Sends "Ommeladai_Ommelaprendo.mp3"
+		fileId := "CQACAgQAAxkBAAMdYDGY7dlBqJLhGH_4XmroQr2JmjkAAuAHAAJ-45BRzOPcDV73K3weBA"
+		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 22:
 		msg := "GIRONZOLAANDOOO!"
@@ -355,10 +334,9 @@ func (b *bot) sendLelloSong(message *echotron.Message) {
 
 	switch n {
 	case 0:
-		filename := audioFolder + "Pinocchio_Lello.mp3"
-		if checkFileExistence(filename) {
-			b.SendVoice(filename, "By Dix (@michele.di.croce)", message.Chat.ID)
-		}
+		fileId := "AwACAgQAAxkBAAMPYDGWbkKgs6VXuzrYXhR6n5jO2j8AAngKAAL9zJBRSwOokr3_fVMeBA"
+		b.SendVoiceByID(fileId, "By Dix (@michele.di.croce)", message.Chat.ID)
+		break
 	}
 }
 
