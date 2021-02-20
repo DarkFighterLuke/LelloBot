@@ -159,7 +159,7 @@ Se non ti rispondo è che ho preso sonno.
 
 func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 	if n < 0 {
-		n = rand.Intn(13)
+		n = rand.Intn(21)
 	}
 
 	switch n {
@@ -222,9 +222,72 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		msg := "Seh, o mo'!"
 		b.SendMessage(msg, message.Chat.ID)
 		break
+	case 14:
+		msg := "A me mi serve casa"
+		b.SendMessage(msg, message.Chat.ID)
+		break
+	case 15:
+		filename := audioFolder + "A_me_mi_serve_casa.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 14)
+		}
+		break
+	case 16:
+		if b.roundNegazione == 0 {
+			filename := audioFolder + "Non_sto_umbriacato.mp3"
+			if checkFileExistence(filename) {
+				b.SendAudio(filename, "", message.Chat.ID)
+				b.roundNegazione = 1
+			} else {
+				b.sendLelloTypicalExpression(message, 12)
+			}
+		}
+		break
+	case 17:
+		filename := audioFolder + "Questo_me_ne_sbatto_un_cazzo.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 3)
+		}
+		break
+	case 18:
+		filename := audioFolder + "Seh_o_mo.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 13)
+		}
+		break
+	case 19:
+		filename := audioFolder + "Tsk.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 8)
+		}
+		break
+	case 20:
+		filename := audioFolder + "Ma_vedi_che_ahhhhh.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 7)
+		}
+		break
+	case 21:
+		filename := audioFolder + "Ommeladai_Ommelaprendo.mp3"
+		if checkFileExistence(filename) {
+			b.SendAudio(filename, "", message.Chat.ID)
+		} else {
+			b.sendLelloTypicalExpression(message, 5)
+		}
+		break
 	}
 
-	if n != 12 && b.roundNegazione != 0 {
+	if b.roundNegazione != 0 && (n != 12 && n != 16) {
 		b.roundNegazione = 0
 	}
 }
@@ -315,5 +378,14 @@ func (b *bot) logUser(update *echotron.Update, folder string) {
 	if err != nil {
 		log.Println(err)
 		return
+	}
+}
+
+func checkFileExistence(path string) bool {
+	_, err := os.Stat(path)
+	if os.IsNotExist(err) {
+		return false
+	} else {
+		return true
 	}
 }
