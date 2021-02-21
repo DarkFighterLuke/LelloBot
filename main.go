@@ -235,40 +235,40 @@ func (b *bot) sendLelloTypicalExpression(message *echotron.Message, n int) {
 		break
 	case 15:
 		// Sends "A_me_mi_serve_casa.mp3"
-		fileId := "CQACAgQAAxkBAAMRYDGXRaJXlVFCD0e0qWJ0qWi18rgAAtoHAAJ-45BRxSJy-rqi9zEeBA"
+		fileId := "AwACAgQAAxkBAANFYDLbXlZJL6zn8aSTiFthxi6w-IQAAswJAAJKqZlRmdxNX9F1ZrseBA"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 16:
 		// Sends "Non_sto_umbriacato.mp3"
 		if b.roundNegazione == 0 {
-			fileId := "CQACAgQAAxkBAAMVYDGX8LNnlnQoXL4-ny6oUkOIsJkAAtwHAAJ-45BR2iXnAAG4Zzg_HgQ"
+			fileId := "AwACAgQAAxkBAANJYDLbpwMJPry0s8U6Dr8xODde34oAAs4JAAJKqZlRsKmcOp2e-h8eBA"
 			b.SendVoiceByID(fileId, "", message.Chat.ID)
 			b.roundNegazione = 1
 		}
 		break
 	case 17:
 		// Sends "Questo_me_ne_sbatto_un_cazzo.mp3"
-		fileId := "CQACAgQAAxkBAAMXYDGYNQvfK-RaPZussPqUqC9MNtYAAt0HAAJ-45BRWOC35wg_yx8eBA"
+		fileId := "AwACAgQAAxkBAANPYDLc10yHO-wCU7ZTUIvzieEI0PsAAtoJAAJKqZlRmLjCyKj7vfkeBA"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 18:
 		// Sends "Seh_o_mo.mp3"
-		fileId := "CQACAgQAAxkBAAMZYDGYkiDK0TR5A55Evg7UWCChmvIAAt4HAAJ-45BRHBEnU0ScM70eBA"
+		fileId := "AwACAgQAAxkBAANDYDLbEtnWKgABGNPvYeVG0NcwduP6AALKCQACSqmZUbRhIw7Bw2xgHgQ"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 19:
 		// Sends "Tsk.mp3"
-		fileId := "CQACAgQAAxkBAAMbYDGY1QABK3cRLcQk9JbT2_Et2jnJAALfBwACfuOQUUcM7aLgJwg5HgQ"
+		fileId := "AwACAgQAAxkBAANLYDLb5tw-7xJ8CgI8dGq9VQQPlxIAAtIJAAJKqZlRcjAR10XbKcMeBA"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 20:
 		// Sends "Ma_vedi_che_ahhhhh.mp3"
-		fileId := "CQACAgQAAxkBAAMTYDGXSDFfqDGTqXNIu9kwGX-MjiMAAtsHAAJ-45BRMChRRyvJP68eBA"
+		fileId := "AwACAgQAAxkBAANHYDLbhQOHO4T8dLbU2SNAPTtrCJ8AAs0JAAJKqZlRtMYwKuvppgUeBA"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 21:
 		// Sends "Ommeladai_Ommelaprendo.mp3"
-		fileId := "CQACAgQAAxkBAAMdYDGY7dlBqJLhGH_4XmroQr2JmjkAAuAHAAJ-45BRzOPcDV73K3weBA"
+		fileId := "AwACAgQAAxkBAANNYDLcOHXHKaeSyNVEkuxI2QYbmTEAAtQJAAJKqZlRCmVf0kSJem4eBA"
 		b.SendVoiceByID(fileId, "", message.Chat.ID)
 		break
 	case 22:
