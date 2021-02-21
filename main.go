@@ -336,7 +336,7 @@ func (b *bot) sendLelloSong(message *echotron.Message) {
 		b.SendVoiceByID(fileId, "By Dix (@michele.di.croce)", message.Chat.ID)
 		break
 	case 1:
-		fileId := "CQACAgQAAxkBAAMhYDGbyMQryAc9CfIF3yimp2jQAUEAAuEHAAJ-45BRf1BVsg3JDsseBA"
+		fileId := "AwACAgQAAxkBAANRYDLfOf5hsdP2q7ZOIsGX1jFaqzMAAtsJAAJKqZlRUgSukIAU98ceBA"
 		b.SendVoiceByID(fileId, "By Vincenzo Santoliquido", message.Chat.ID)
 		break
 	}
