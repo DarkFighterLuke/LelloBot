@@ -107,8 +107,8 @@ func (b *bot) Update(update *echotron.Update) {
 			b.sendLelloTypicalExpression(update.Message, 24)
 		} else if strings.Contains(messageTextLower, "ubriac") || strings.Contains(messageTextLower, "mbriac") {
 			b.sendLelloTypicalExpression(update.Message, 12)
-		} else if b.roundNegazione != 0 && strings.Contains(messageTextLower, "sì") ||
-			strings.Contains(messageTextLower, "si") {
+		} else if b.roundNegazione != 0 && (strings.Contains(messageTextLower, "sì") ||
+			strings.Contains(messageTextLower, "si")) {
 			b.sendLelloNegazioneSbronza(update.Message)
 		} else if b.roundNegazione != 0 && strings.Contains(messageTextLower, "no") {
 			b.sendLelloTypicalExpression(update.Message, 7)
