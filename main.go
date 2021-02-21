@@ -96,6 +96,7 @@ func (b *bot) Update(update *echotron.Update) {
 			b.sendCredits(update)
 		} else if strings.Contains(messageTextLower, "cant") && strings.Contains(messageTextLower, "canzone") {
 			b.sendLelloSong(update.Message)
+			log.Println("1")
 		} else if strings.Contains(messageTextLower, "stai pieno") {
 			b.roundNegazione = 1
 			b.sendLelloNegazioneSbronza(update.Message)
@@ -111,10 +112,8 @@ func (b *bot) Update(update *echotron.Update) {
 			if b.roundNegazione != 0 {
 				b.sendLelloNegazioneSbronza(update.Message)
 			}
-		} else if strings.Contains(messageTextLower, "no") {
-			if b.roundNegazione != 0 {
-				b.sendLelloTypicalExpression(update.Message, 7)
-			}
+		} else if b.roundNegazione != 0 && strings.Contains(messageTextLower, "no") {
+			b.sendLelloTypicalExpression(update.Message, 7)
 		} else if strings.Contains(messageTextLower, "lello") || strings.Contains(messageTextLower, "lè") ||
 			strings.Contains(messageTextLower, "lé") {
 			b.sendLelloTypicalExpression(update.Message, -1)
