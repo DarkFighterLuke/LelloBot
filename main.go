@@ -83,7 +83,7 @@ func main() {
 	initFolders()
 
 	dsp := echotron.NewDispatcher(TOKEN, newBot)
-	dsp.ListenWebhook("https://hiddenfile.tk:443/bot/LelloBot", 40989)
+	dsp.ListenWebhook("https://hiddenfile.ml:443/bot/LelloBot", 40989)
 }
 
 func (b *bot) Update(update *echotron.Update) {
